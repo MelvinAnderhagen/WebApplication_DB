@@ -1,0 +1,13 @@
+﻿@page
+@model WebApplication3.Pages.NewsModel
+@{
+}
+
+<h1>News center!</h1>
+
+<ul>
+@foreach(var item in @Model.Items)
+{
+    <li><a asp-page="/ShowArticle" asp-route-ArticleId="@item.Id">@item.Title</a></li>
+}
+</ul>

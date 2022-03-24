@@ -1,0 +1,27 @@
+﻿@page
+@model WebApplication3.Pages.SuppliersModel
+@{
+}
+
+<h1>@Model.CurrentWeekDay</h1>
+
+<h1>All suppliers hehe hehe</h1>
+ 
+
+
+<table class="table">
+    <tr>
+        <th>Company</th>
+        <th>City</th>
+        <th>Edit</th>
+    </tr>
+@foreach(var item in Model.Suppliers){
+    <tr>
+    <td>@item.Name</td>
+    <td>@item.City</td>
+    <td><a asp-page="/Supplier" asp-route-id="@item.Id">Edit</a></td>
+   </tr>
+}
+</table>
+@*
+<a asp-page="/Random">Tillbaka</a>*@

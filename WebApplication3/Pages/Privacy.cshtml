@@ -1,0 +1,35 @@
+﻿@page
+@model PrivacyModel
+@{
+    ViewData["Title"] = "Privacy Policy";
+}
+<h1>@ViewData["Title"]</h1>
+
+<p>Use this page to detail your site's privacy policy.</p>
+
+
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th class="col-5">
+            Namn
+        </th>
+        
+        <th class="col-5">
+            Jersey
+        </th>
+        
+        <th class="col-2">
+            Edit
+        </th>
+    </tr>
+    </thead>
+    @foreach (var player in Model.Players)
+    {
+        <tr>
+            <td>@player.Namn</td>
+            <td>@player.Jersey</td>
+            <td><a asp-page="" asp-route-id="@player.Id">Edit</a></td>
+        </tr>
+    }
+</table>

@@ -1,0 +1,17 @@
+﻿@page
+@model WebApplication3.Pages.PlayersModel
+@{
+}
+
+
+<h1>Players list!</h1>
+
+
+<ul>
+
+    @foreach (var player in Model.players)
+    {
+        <li>@player</li>
+    }
+
+</ul>

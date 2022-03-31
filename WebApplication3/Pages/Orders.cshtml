@@ -1,0 +1,26 @@
+﻿@page
+@model WebApplication3.Pages.OrdersModel
+@{
+}
+
+
+<table>
+    <tr>
+        <th>
+            Id
+        </th>
+        <th>
+            Customer
+        </th>
+        <th>
+            Date
+        </th>
+    </tr>
+@foreach(var order in Model.Orders){
+    <tr>
+        <td>@order.Id</td>
+        <td>@order.CustomerName</td>
+        <td>@order.DateTime</td>
+    </tr>
+}
+</table>

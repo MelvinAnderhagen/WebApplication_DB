@@ -1,3 +1,6 @@
+﻿body {
+}
+
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
 
 :root {
@@ -212,4 +215,4 @@ section {
     .productcard img {
         border-top-left-radius: 30px;
         border-top-right-radius: 30px;
-    }
+    } 

@@ -1,12 +1,19 @@
+using Microsoft.EntityFrameworkCore;
 using WebApplication3.Models;
+using WebApplication3.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddTransient<IKrisInfoService, KrisInfoService>();
-builder.Services.AddDbContext<NorthwindContext>();
 builder.Services.AddTransient<ILotteryService, LotteryService>();
+builder.Services.AddTransient<IFreightService, FreightService>();
+builder.Services.AddDbContext<NorthwindContext>(options =>
+{
+    options.UseSqlServer(builder.Configuration.GetConnectionString("Northwind"));
+
+});
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

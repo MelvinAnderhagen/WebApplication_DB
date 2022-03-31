@@ -3,20 +3,24 @@
 @{
 }
 
+<form method="get">
+    <input placeholder="Search" asp-for="@Model.SearchString" />
+    <input type="submit" value="Search" />
+</form>
 
-<table class="table">
+<table>
     <tr>
         <th>
-            Id <a asp-page="/Orders" asp-route-col="id" asp-route-order="asc"> <i class='bx bx-sort-a-z'></i></a> 
-            <a asp-page="/Orders" asp-route-col="id" asp-route-order="desc"> <i class='bx bx-sort-z-a' ></i></a>
+            Id <a asp-route-searchString="@Model.SearchString" asp-page="/Orders" asp-route-col="id" asp-route-order="asc"> <i class='bx bx-sort-a-z'></i></a> 
+            <a asp-route-searchString="@Model.SearchString" asp-page="/Orders" asp-route-col="id" asp-route-order="desc"> <i class='bx bx-sort-z-a' ></i></a>
         </th>
         <th>
-            Customer <a asp-page="/Orders" asp-route-col="customer" asp-route-order="asc"> <i class='bx bx-sort-a-z'></i></a> 
-            <a asp-page="/Orders" asp-route-col="customer" asp-route-order="desc"> <i class='bx bx-sort-z-a' ></i></a>
+            Customer <a asp-route-searchString="@Model.SearchString" asp-page="/Orders" asp-route-col="customer" asp-route-order="asc"> <i class='bx bx-sort-a-z'></i></a> 
+            <a asp-route-searchString="@Model.SearchString" asp-page="/Orders" asp-route-col="customer" asp-route-order="desc"> <i class='bx bx-sort-z-a' ></i></a>
         </th>
         <th>
-            Date <a asp-page="/Orders" asp-route-col="datetime" asp-route-order="asc"> <i class='bx bx-sort-a-z'></i></a> 
-            <a asp-page="/Orders" asp-route-col="datetime" asp-route-order="desc"> <i class='bx bx-sort-z-a' ></i></a>
+            Date <a asp-route-searchString="@Model.SearchString" asp-page="/Orders" asp-route-col="datetime" asp-route-order="asc"> <i class='bx bx-sort-a-z'></i></a> 
+            <a asp-route-searchString="@Model.SearchString" asp-page="/Orders" asp-route-col="datetime" asp-route-order="desc"> <i class='bx bx-sort-z-a' ></i></a>
         </th>
     </tr>
 @foreach(var order in Model.Orders){

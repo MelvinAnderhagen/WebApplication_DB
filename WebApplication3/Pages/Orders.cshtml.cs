@@ -7,9 +7,13 @@ namespace WebApplication3.Pages
 {
     public class OrdersModel : PageModel
     {
+        public OrdersModel(NorthwindContext context)
+        {
+            _context = context;
+        }
         private readonly NorthwindContext _context;
         public List<OrderViewModel> Orders { get; set; }
-        [BindProperty(SupportsGet = true)]
+        //[BindProperty(SupportsGet = true)]
         public string SearchString { get; set; }
 
         public class OrderViewModel
@@ -18,10 +22,7 @@ namespace WebApplication3.Pages
             public string DateTime { get; set; }
             public string CustomerName { get; set; }
         }
-        public OrdersModel(NorthwindContext context)
-        {
-            _context = context;
-        }
+        
 
         public void OnGet(string searchString, string col = "id", string order = "asc")
         {
@@ -38,39 +39,31 @@ namespace WebApplication3.Pages
             if (col == "id")
             {
                 if (order == "asc")
-                {
                     sort = sort.OrderBy(ord => ord.OrderId);
-                }
                 else
-                {
                     sort = sort.OrderByDescending(ord => ord.OrderId);
-                }
                 
             }
             else if (col == "customer")
             {
                 if (order == "asc")
-                {
+               
                     sort = sort.OrderBy(ord => ord.Customer.CompanyName);
-                }
+               
                 else
-                {
+                
                     sort = sort.OrderByDescending(ord => ord.Customer.CompanyName);
-                }
+                
             }
             else if(col == "datetime")
             {
                 if (order == "asc")
-                {
                     sort = sort.OrderBy(ord => ord.OrderDate);
-                }
-                else
-                {
+                else 
                     sort = sort.OrderByDescending(ord => ord.OrderDate);
-                }
             }
 
-            Orders = _context.Orders.Select(n => new OrderViewModel
+            Orders = sort.Select(n => new OrderViewModel
             {
                 CustomerName = n.Customer.CompanyName,
                 Id = n.OrderId,

@@ -4,17 +4,19 @@
 }
 
 
-<table>
+<table class="table">
     <tr>
         <th>
-            
-            Id
+            Id <a asp-page="/Orders" asp-route-col="id" asp-route-order="asc"> <i class='bx bx-sort-a-z'></i></a> 
+            <a asp-page="/Orders" asp-route-col="id" asp-route-order="desc"> <i class='bx bx-sort-z-a' ></i></a>
         </th>
         <th>
-            Customer
+            Customer <a asp-page="/Orders" asp-route-col="customer" asp-route-order="asc"> <i class='bx bx-sort-a-z'></i></a> 
+            <a asp-page="/Orders" asp-route-col="customer" asp-route-order="desc"> <i class='bx bx-sort-z-a' ></i></a>
         </th>
         <th>
-            Date
+            Date <a asp-page="/Orders" asp-route-col="datetime" asp-route-order="asc"> <i class='bx bx-sort-a-z'></i></a> 
+            <a asp-page="/Orders" asp-route-col="datetime" asp-route-order="desc"> <i class='bx bx-sort-z-a' ></i></a>
         </th>
     </tr>
 @foreach(var order in Model.Orders){

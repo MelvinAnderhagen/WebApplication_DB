@@ -12,7 +12,6 @@ builder.Services.AddTransient<IFreightService, FreightService>();
 builder.Services.AddDbContext<NorthwindContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("Northwind"));
-
 });
 var app = builder.Build();
 

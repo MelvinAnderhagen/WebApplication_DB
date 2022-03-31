@@ -1,0 +1,20 @@
+﻿@page
+@model WebApplication3.Pages.OrderInfoModel
+@{
+}
+
+<h1>@Model.Id</h1>
+<h2>@Model.CustomerName, @Model.ContactName</h2>
+@Model.DateTime
+
+<table class="table">
+    @foreach(var order in @Model.OrderRows)
+    {
+        <tr>
+            <td>@order.ProductName</td>
+            <td>@order.Quantity</td>
+            <td>@order.UnitPrice</td>
+            <td>@order.RowPrice()</td>
+        </tr>
+    }
+</table>

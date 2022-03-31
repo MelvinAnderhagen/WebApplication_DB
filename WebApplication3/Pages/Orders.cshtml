@@ -7,6 +7,7 @@
 <table>
     <tr>
         <th>
+            
             Id
         </th>
         <th>
@@ -18,7 +19,7 @@
     </tr>
 @foreach(var order in Model.Orders){
     <tr>
-        <td>@order.Id</td>
+        <td><a asp-page="/OrderInfo" asp-route-id="@order.Id">@order.Id</a></td>
         <td>@order.CustomerName</td>
         <td>@order.DateTime</td>
     </tr>

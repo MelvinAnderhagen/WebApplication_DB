@@ -16,6 +16,8 @@ namespace WebApplication3.Pages
         //[BindProperty(SupportsGet = true)]
         public string SearchString { get; set; }
         public int PageNo { get; set; }
+        public string SortOrder { get; set; }
+        public string SortCol { get; set; }
         public class OrderViewModel
         {
             public int Id { get; set; }
@@ -26,8 +28,11 @@ namespace WebApplication3.Pages
 
         public void OnGet(string searchString, int pageno=1, string col = "id", string order = "asc")
         { 
+            SortOrder = order;
+            SortCol = col;
             PageNo = pageno;
             SearchString = searchString;
+
             var sort = _context.Orders.Include(n => n.Customer).AsQueryable();
 
             if (!string.IsNullOrEmpty(SearchString))

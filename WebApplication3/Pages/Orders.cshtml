@@ -35,10 +35,10 @@
     <td>
         @if (@Model.PageNo > 1)
         {
-            <a asp-page="/Orders" asp-route-pageno="@(Model.PageNo-1)">Prev</a>
+            <a asp-page="/Orders" asp-route-search="@Model.SearchString" asp-route-pageno="@(Model.PageNo-1)">Prev</a>
         }
     </td>
     <td></td>
-    <td><a asp-page="/Orders" asp-route-pageno="@(Model.PageNo+1)">Next</a></td>
+    <td><a asp-page="/Orders" asp-route-searchString="@Model.SearchString" asp-route-pageno="@(Model.PageNo+1)">Next</a></td>
 </tr>
 </table>

@@ -30,4 +30,15 @@
         <td>@order.DateTime</td>
     </tr>
 }
+
+<tr>
+    <td>
+        @if (@Model.PageNo > 1)
+        {
+            <a asp-page="/Orders" asp-route-pageno="@(Model.PageNo-1)">Prev</a>
+        }
+    </td>
+    <td></td>
+    <td><a asp-page="/Orders" asp-route-pageno="@(Model.PageNo+1)">Next</a></td>
+</tr>
 </table>

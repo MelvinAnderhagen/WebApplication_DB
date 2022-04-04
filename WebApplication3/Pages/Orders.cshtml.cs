@@ -15,7 +15,7 @@ namespace WebApplication3.Pages
         public List<OrderViewModel> Orders { get; set; }
         //[BindProperty(SupportsGet = true)]
         public string SearchString { get; set; }
-
+        public int PageNo { get; set; }
         public class OrderViewModel
         {
             public int Id { get; set; }
@@ -24,8 +24,9 @@ namespace WebApplication3.Pages
         }
         
 
-        public void OnGet(string searchString, string col = "id", string order = "asc")
-        {
+        public void OnGet(string searchString, int pageno=1, string col = "id", string order = "asc")
+        { 
+            PageNo = pageno;
             SearchString = searchString;
             var sort = _context.Orders.Include(n => n.Customer).AsQueryable();
 
@@ -62,6 +63,10 @@ namespace WebApplication3.Pages
                 else 
                     sort = sort.OrderByDescending(ord => ord.OrderDate);
             }
+
+            int toSkip = (pageno - 1) * 20;
+
+            sort = sort.Skip(toSkip).Take(20);
 
             Orders = sort.Select(n => new OrderViewModel
             {
